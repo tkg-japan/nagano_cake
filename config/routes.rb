@@ -1,41 +1,33 @@
 Rails.application.routes.draw do
-  get 'homes/top'
-  get 'homes/about'
-  get 'cart_items/index'
-  get 'orders/index'
-  get 'orders/show'
-  get 'orders/new'
-  get 'orders/complete'
-  get 'items/index'
-  get 'items/show'
+  root to: 'homes#top'
+  get 'homes/about' => 'homes#about'
 
-  get 'addresses/index'
-  get 'addresses/edit'
-  get 'customers/show'
-  get 'customers/edit'
-  get 'customers/unsubscribe'
+  resources :cart_items,only: [:index, :create, :update, :destroy, :destroy_all]
+
+  resources :orders,only: [:create, :index, :show, :new]
+  get 'orders/complete' => 'public/orders#complete'
+  post 'orders/confilm' => 'public/orders#confilm'
+
+  resources :items,only: [:index, :show]
+
+  resources :addresses,only: [:index, :edit, :create, :update, :destroy]
+
+  resources :customers,only: [:show, edit, :update]
+  patch 'customers/withdraw' => 'public/customers#withdraw'
+
+  get 'customers/unsubscribe' => 'public/customers#unsubscribe'
 
   namespace :admin do
 
-    get 'items/inde'
-    get 'items/show'
-    get 'items/edit'
-  end
-  namespace :admin do
-    get 'customers/show'
-    get 'customers/edit'
-    get 'customers/index'
-  end
-    
-  namespace :admin do
-    get 'genres/index'
-    get 'genres/edit'
-  end
-  namespace :admin do
-    get 'orders/show'
-  end
-  namespace :admin do
-    get 'homes/top'
+    resources :items,only: [:index, :show, :edit, :update, :create, :new]
+
+    resources :customers,only: [:index, :show, :edit, :update]
+
+    resources :genres,only: [:index, :create, :edit, :update]
+
+    resources :orders,only: [:show, :update]
+
+    root to: 'homes#top'
 
   end
 
