@@ -1,4 +1,13 @@
 Rails.application.routes.draw do
+  get 'homes/top'
+  get 'homes/about'
+  get 'cart_items/index'
+  get 'orders/index'
+  get 'orders/show'
+  get 'orders/new'
+  get 'orders/complete'
+  get 'items/index'
+  get 'items/show'
 
   get 'addresses/index'
   get 'addresses/edit'
