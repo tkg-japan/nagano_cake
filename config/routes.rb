@@ -10,7 +10,7 @@ Rails.application.routes.draw do
     end
   end
 
-  scope module: :public do
+
     root to: 'homes#top'
     get '/about' => 'homes#about', as: 'about'
 
@@ -35,7 +35,7 @@ Rails.application.routes.draw do
         post 'confirm'
       end
     end
-  end
+
 
 
   devise_for :admin, skip: [:registrations, :passwords], controllers: {
