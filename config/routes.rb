@@ -1,37 +1,50 @@
 Rails.application.routes.draw do
-  root to: 'homes#top'
-  get 'homes/about' => 'homes#about'
-
-  resources :cart_items,only: [:index, :create, :update, :destroy, :destroy_all]
-
-  resources :orders,only: [:create, :index, :show, :new]
-  get 'orders/complete' => 'public/orders#complete'
-  post 'orders/confilm' => 'public/orders#confilm'
-
-  resources :items,only: [:index, :show]
-
-  resources :addresses,only: [:index, :edit, :create, :update, :destroy]
-
-  resources :customers,only: [:show, edit, :update]
-  patch 'customers/withdraw' => 'public/customers#withdraw'
-
-  get 'customers/unsubscribe' => 'public/customers#unsubscribe'
 
   namespace :admin do
-
-    resources :items,only: [:index, :show, :edit, :update, :create, :new]
-
-    resources :customers,only: [:index, :show, :edit, :update]
-
-    resources :genres,only: [:index, :create, :edit, :update]
-
-    resources :orders,only: [:show, :update]
-
     root to: 'homes#top'
-
+    resources :items, except: [:destroy]
+    resources :customers, except: [:new, :create, :destroy]
+    resources :genres, except: [:show, :destroy, :new]
+    resources :orders, only: [:index, :show, :update] do
+      resources :order_details, only: [:update]
+    end
   end
 
-  devise_for :customers
-  devise_for :admins
+  scope module: :public do
+    root to: 'homes#top'
+    get '/about' => 'homes#about', as: 'about'
+
+    resources :items, only: [:index, :show]
+
+    resource :customers, only: [:show, :edit, :update] do
+      collection do
+        get 'unsubscribe'
+        patch 'withdraw'
+      end
+      resources :cart_items, only: [:index, :create, :update, :destroy] do
+        collection do
+          delete 'destroy_all'
+        end
+      end
+      resources :addresses, except: [:new, :show]
+    end
+
+    resources :orders,only: [:create, :index, :show, :new] do
+      collection do
+        get 'complete'
+        post 'confirm'
+      end
+    end
+  end
+
+
+  devise_for :admin, skip: [:registrations, :passwords], controllers: {
+    sessions: 'admin/sessions'
+  }
+
+  devise_for :customers, skip: [:passwords,], controllers: {
+    registrations: 'public/sessions',
+    sessions: 'public/sessions'
+  }
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
