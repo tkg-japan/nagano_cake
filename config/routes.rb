@@ -1,21 +1,22 @@
 Rails.application.routes.draw do
 
   namespace :admin do
+    root to: 'homes#top'
     resources :items, except: [:destroy]
     resources :customers, except: [:new, :create, :destroy]
     resources :genres, except: [:show, :destroy, :new]
-    resources :orders, only: [:index, :show, :update]
-    resources :order_details, only: [:update]
+    resources :orders, only: [:index, :show, :update] do
+      resources :order_details, only: [:update]
+    end
   end
 
-  scope module: :public do
 
     root to: 'homes#top'
     get '/about' => 'homes#about', as: 'about'
 
     resources :items, only: [:index, :show]
 
-    resource :customers, only: [:show, edit, :update] do
+    resource :customers, only: [:show, :edit, :update] do
       collection do
         get 'unsubscribe'
         patch 'withdraw'
@@ -34,7 +35,8 @@ Rails.application.routes.draw do
         post 'confirm'
       end
     end
-  end
+
+
 
   devise_for :admin, skip: [:registrations, :passwords], controllers: {
     sessions: 'admin/sessions'
