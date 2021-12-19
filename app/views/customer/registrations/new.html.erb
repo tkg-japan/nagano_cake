@@ -1,62 +1,59 @@
 <div class="container">
-<h2>新規会員登録</h2>
+  <h2>新規会員登録</h2>
 
-<%= form_with model: @customer, url: customer_registration_path, local:true do |f| %>
-  <%= render "customer/shared/error_messages", resource: resource %>
+  <%= form_with model: @customer, url: customer_registration_path, local:true do |f| %>
+    <%= render "customer/shared/error_messages", resource: resource %>
 
-  <div class="form-group row">
-    <%= f.label :"名前", class: "col-md-3" %>
-    <%= f.label :"(姓)" %>
-    <%= f.text_field :Last_name, autofocus: true, placeholder: "", class: "col-md-2 form-control"  %>
-    <%= f.label :"(名)", class: "ml-3" %>
-    <%= f.text_field :first_name, placeholder: "", class: "col-md-2 form-control" %>
-  </div>
+    <div class="form-group row">
+      <%= f.label :"名前", class: "col-md-3" %>
+      <%= f.label :"(姓)" %>
+      <%= f.text_field :last_name, autofocus: true, placeholder: "", class: "col-md-2 form-control"  %>
+      <%= f.label :"(名)", class: "ml-3" %>
+      <%= f.text_field :first_name, placeholder: "", class: "col-md-2 form-control" %>
+    </div>
 
-  <div class="form-group row">
-    <%= f.label :"フリガナ", class: "col-md-3" %>
-    <%= f.label :"(セイ)" %>
-    <%= f.text_field :Last_name, autofocus: true, placeholder: "", class: "col-md-2 form-control"  %>
-    <%= f.label :"(メイ)", class: "ml-3" %>
-    <%= f.text_field :first_name, placeholder: "", class: "col-md-2 form-control" %>
-  </div>
+    <div class="form-group row">
+      <%= f.label :"フリガナ", class: "col-md-3" %>
+      <%= f.label :"(セイ)" %>
+      <%= f.text_field :Last_name, autofocus: true, placeholder: "", class: "col-md-2 form-control"  %>
+      <%= f.label :"(メイ)", class: "ml-3" %>
+      <%= f.text_field :first_name, placeholder: "", class: "col-md-2 form-control" %>
+    </div>
 
-  <div class="form-group row">
-    <%= f.label :"メールアドレス", class: "col-md-3" %>
-    <%= f.email_field :email, placeholder: "", class: "col-md-5 form-control"  %>
-  </div>
+    <div class="form-group row">
+      <%= f.label :"メールアドレス", class: "col-md-3" %>
+      <%= f.email_field :email, placeholder: "", class: "col-md-5 form-control"  %>
+    </div>
 
-  <div class="form-group row">
-    <%= f.label :"郵便番号（ハイフン無し）", class: "col-md-3" %>
-    <%= f.text_field :postal_code, placeholder: "", class: "col-md-5 form-control"  %>
-  </div>
+    <div class="form-group row">
+      <%= f.label :"郵便番号（ハイフン無し）", class: "col-md-3" %>
+      <%= f.text_field :postal_code, placeholder: "", class: "col-md-5 form-control"  %>
+    </div>
 
-  <div class="form-group row">
-    <%= f.label :"住所", class: "col-md-3" %>
-    <%= f.text_field :address, placeholder: "", class: "col-md-5 form-control"  %>
-  </div>
+    <div class="form-group row">
+      <%= f.label :"住所", class: "col-md-3" %>
+      <%= f.text_field :address, placeholder: "", class: "col-md-5 form-control"  %>
+    </div>
 
-  <div class="form-group row">
-    <%= f.label :"電話番号（ハイフン無し）", class: "col-md-3" %>
-    <%= f.text_field :phone_number, placeholder: "", class: "col-md-5 form-control"  %>
-  </div>
+    <div class="form-group row">
+      <%= f.label :"電話番号（ハイフン無し）", class: "col-md-3" %>
+      <%= f.text_field :phone_number, placeholder: "", class: "col-md-5 form-control"  %>
+    </div>
 
-  <div class="form-group row">
-    <%= f.label :"パスワード（６文字以上）", class: "col-md-3" %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, class: "col-md-5 form-control" %>
-  </div>
+    <div class="form-group row">
+      <%= f.label :"パスワード（６文字以上）", class: "col-md-3" %>
+      <%= f.password_field :password, class: "col-md-5 form-control" %>
+    </div>
 
-  <div class="form-group row">
-    <%= f.label :"パスワード（確認用）", class: "col-md-3" %>
-    <%= f.password_field :password_confirmation, class: "col-md-5 form-control" %>
-  </div>
+    <div class="form-group row">
+      <%= f.label :"パスワード（確認用）", class: "col-md-3" %>
+      <%= f.password_field :password_confirmation, class: "col-md-5 form-control" %>
+    </div>
 
-  <div class="form-group row">
-    <%= f.submit "新規登録", class: "btn btn-success col-md-1 offset-1" %>
-  </div>
-<% end %>
+    <div class="form-group row">
+      <%= f.submit "新規登録", class: "btn btn-success col-md-1 offset-1" %>
+    </div>
+  <% end %>
 
-<%= render "customer/shared/links" %>
+  <%= render "customer/shared/links" %>
 </div>
