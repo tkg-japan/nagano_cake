@@ -32,7 +32,7 @@ class Customer::SessionsController < Devise::SessionsController
     @customer = Customer.find_by(email: params[:customer][:email])
     if @customer
       if @customer.vaild_password?(params[:customer][:password]) && !@customer.is_valid
-        redirect_to root_path
+        redirect_to new_customer_session_path
       end
     end
   end
