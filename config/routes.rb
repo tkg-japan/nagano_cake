@@ -43,14 +43,10 @@ Rails.application.routes.draw do
     scope module: :customer do
       get 'customers/unsubscribe' => 'customers#unsubscribe', as: 'unsubscribe'
       patch 'customers/withdraw' => 'customers#withdraw', as: 'withdraw'
-<<<<<<< Updated upstream
       resource :customers, only: [:show]
       get 'customer/edit' => 'customers#edit'
       put 'customer/update' => 'customers#update'
       patch 'customer/update' => 'customers#update'
-=======
-      resource :customers, only: [:show, :edit, :update]
->>>>>>> Stashed changes
     end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
