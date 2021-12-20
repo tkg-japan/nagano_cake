@@ -1,2 +1,13 @@
-<h1>Items#index</h1>
-<p>Find me in app/views/items/index.html.erb</p>
+<h2>商品一覧</h2>
+<h4>（全〇件）</h4>
+
+<table class="table cart_products">
+<% @items.each do |item| %>
+<tr>
+  <td><%= link_to item, book_path(book), class: "book_#{book.id}" %></td>
+
+
+</tr>
+</table>
+
+<%= render 'items/genre', genres: @genres %>
