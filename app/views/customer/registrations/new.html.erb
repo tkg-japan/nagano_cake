@@ -15,9 +15,9 @@
     <div class="form-group row">
       <%= f.label :"フリガナ", class: "col-md-3" %>
       <%= f.label :"(セイ)" %>
-      <%= f.text_field :Last_name, autofocus: true, placeholder: "", class: "col-md-2 form-control"  %>
+      <%= f.text_field :last_name_kana, autofocus: true, placeholder: "", class: "col-md-2 form-control"  %>
       <%= f.label :"(メイ)", class: "ml-3" %>
-      <%= f.text_field :first_name, placeholder: "", class: "col-md-2 form-control" %>
+      <%= f.text_field :first_name_kana, placeholder: "", class: "col-md-2 form-control" %>
     </div>
 
     <div class="form-group row">
@@ -27,7 +27,7 @@
 
     <div class="form-group row">
       <%= f.label :"郵便番号（ハイフン無し）", class: "col-md-3" %>
-      <%= f.text_field :postal_code, placeholder: "", class: "col-md-5 form-control"  %>
+      <%= f.text_field :postcode, placeholder: "", class: "col-md-5 form-control"  %>
     </div>
 
     <div class="form-group row">
