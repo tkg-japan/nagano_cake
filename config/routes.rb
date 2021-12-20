@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     registrations: 'customer/registrations',
     sessions: 'customer/sessions'
   }
-
+#管理者側
  namespace :admin do
     root to: 'homes#top'
     resources :items, except: [:destroy]
@@ -19,7 +19,7 @@ Rails.application.routes.draw do
     end
   end
 
-
+#顧客側
     root to: 'homes#top'
     get '/about' => 'homes#about', as: 'about'
 
