@@ -2,19 +2,18 @@ class Customer::CustomersController < ApplicationController
 
 
   def show
-    @customer = Customer.find(params[:id])
+    @customer = current_customer
   end
 
   def edit
   end
 
   def unsubscribe
-    @customer = Customer.find_by(name: params[:email])
   end
 
   def withdraw
-    @customer = Customer.find_by(name: params[:email])
-    @customer.update(is_valid: false)
+    @customer = current_customer
+    @customer.update(is_deleted: true)
     reset_session
     redirect_to root_path
   end

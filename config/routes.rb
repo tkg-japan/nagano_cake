@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     registrations: 'customer/registrations',
     sessions: 'customer/sessions'
   }
-
+#管理者側
  namespace :admin do
     root to: 'homes#top'
     resources :items, except: [:destroy]
@@ -19,7 +19,7 @@ Rails.application.routes.draw do
     end
   end
 
-
+#顧客側
     root to: 'homes#top'
     get '/about' => 'homes#about', as: 'about'
 
@@ -43,7 +43,7 @@ Rails.application.routes.draw do
     scope module: :customer do
       get 'customers/unsubscribe' => 'customers#unsubscribe', as: 'unsubscribe'
       patch 'customers/withdraw' => 'customers#withdraw', as: 'withdraw'
-      resources :customers, only: [:show, :edit, :update]
+      resource :customers, only: [:show, :edit, :update]
     end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
