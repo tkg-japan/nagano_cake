@@ -15,7 +15,7 @@ Rails.application.routes.draw do
     resources :customers, except: [:new, :create, :destroy]
     resources :genres, except: [:show, :destroy, :new]
     resources :orders, only: [:index, :show, :update] do
-      resources :order_details, only: [:update]
+     resources :order_details, only: [:update]
     end
   end
 
@@ -23,20 +23,7 @@ Rails.application.routes.draw do
     root to: 'homes#top'
     get '/about' => 'homes#about', as: 'about'
 
-    resources :items, only: [:index, :show]
-
-    resource :customers, only: [:show, :edit, :update] do
-      collection do
-        get 'unsubscribe'
-        patch 'withdraw'
-      end
-      resources :cart_items, only: [:index, :create, :update, :destroy] do
-        collection do
-          delete 'destroy_all'
-        end
-      end
-      resources :addresses, except: [:new, :show]
-    end
+    resources :addresses, except: [:new, :show]
 
     resources :orders,only: [:create, :index, :show, :new] do
       collection do
@@ -45,5 +32,18 @@ Rails.application.routes.draw do
       end
     end
 
+    resources :cart_items, only: [:index, :create, :update, :destroy] do
+      collection do
+        delete 'destroy_all'
+      end
+    end
+
+    resources :items, only: [:index, :show]
+
+    scope module: :customer do
+      get 'customers/unsubscribe' => 'customers#unsubscribe', as: 'unsubscribe'
+      patch 'customers/withdraw' => 'customers#withdraw', as: 'withdraw'
+      resources :customers, only: [:show, :edit, :update]
+    end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
