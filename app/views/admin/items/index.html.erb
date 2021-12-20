@@ -30,7 +30,7 @@
             <td class="col-md-1"><%= item.id %></td>
             <td class="col-md-3"><%= link_to item.name, admin_item_path(item.id) %></td>
             <td class="col-md-2"><%= item.price %></td>
-            <td class="col-md-2"><%= item.category.name %></td>
+            <td class="col-md-2"><%= item.genre.name %></td>
             <td class="col-md-2"><%= item.is_active ? "販売中" : "販売停止中" %></td>
           </tr>
           <% end %>
