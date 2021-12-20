@@ -11,7 +11,7 @@
       <table class="cart_items">
         <tr>
           <th>商品画像</th>
-          <td><%#= f.attachment_field :image %></td>
+          <td><%= f.attachment_field :image %></td>
         </tr>
         <tr>
           <th>商品名</th>
@@ -23,7 +23,7 @@
         </tr>
         <tr>
           <th>ジャンル</th>
-          <td><%#= f.collection_select(:category_id, @genres, :id, :name, prompt: "選択してください") %></td>
+          <td><%= f.collection_select(:genre_id, @genres, :id, :name, prompt: "選択してください") %></td>
         </tr>
         <tr>
           <th>税抜き価格</th>
