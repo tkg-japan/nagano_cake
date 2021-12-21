@@ -98,6 +98,7 @@ ActiveRecord::Schema.define(version: 2021_12_21_054743) do
     t.integer "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "customer_id"
   end
 
 end
