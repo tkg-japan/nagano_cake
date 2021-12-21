@@ -11,7 +11,7 @@ class Admin::ItemsController < ApplicationController
     if @item.save
       redirect_to admin_item_path(@item.id), notice: "いいーね!!"
     else
-      frash.now[:alert] = "もう一度入力し直してください。"
+      # frash.now[:alert] = "もう一度入力し直してください。"
       render "index"
     end
 
@@ -20,7 +20,7 @@ class Admin::ItemsController < ApplicationController
   def update
     item = Item.find(params[:id])
     item.update(item_params)
-    flash[:notice] = "商品情報を編集したよ。"
+    # flash[:notice] = "商品情報を編集したよ。"
     redirect_to admin_item_path(item.id)
 
   end
