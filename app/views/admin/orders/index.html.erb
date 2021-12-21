@@ -13,7 +13,7 @@
     </tr>
     <% @orders.each do |order| %>
       <td>
-        <%= link_to admin_order_path(order) do %>
+        <%= link_to admin_order_datails_path do %>
           <%= order.created_at %>
           <!--<%#= order.created_at.to_s(:datetime_jp) %> 日本時間に修正する？-->
         <% end %>
