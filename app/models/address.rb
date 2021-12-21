@@ -6,4 +6,8 @@ class Address < ApplicationRecord
   validates :address, presence: true
   validates :name, presence: true
 
+  def full_address
+      '〒' + postcode + ' ' + address + ' ' + full_name
+  end
+
 end
