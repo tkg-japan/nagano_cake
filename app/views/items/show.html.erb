@@ -11,7 +11,7 @@
           <div class="w-auto h-50"><%= @item.explanation %></div>
           <strong>¥<%= @item.price.to_s(:delimited) %></strong>(税込)
           <%= form_with(model:@cart_item, url:cart_items_path, local: true, method: :post, class:"form-inline mt-2") do |f| %>
-            <%= f.hidden_field :item, value: @item.id %>
+            <%= f.hidden_field :item_id, value: @item.id %>
             <%= f.select :amount, *[1..10] %>
             <%= f.submit "カートに入れる", class:"btn btn-primary btn-sm ml-4" %>
           <% end %>
