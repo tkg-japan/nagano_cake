@@ -16,9 +16,21 @@ class OrdersController < ApplicationController
   def create
     @orders = Order.new(confirm_params)
     @orders.save
+
+    current_customer.cart_items.each do |item|
+      @item = OrderDetail.new
+      @item.item_id = item.item_id
+      @item.quantity = item.quantity
+      @item.price = item.item.price_without_tax
+      @item.order_id = @orders.id
+      @item.production_status = '着手不可'
+      @item.save
+    end
+
+    current_customer.cart_items.destroy_all
   end
 
-  def confilm
+  def confirm
     @order = Order.new(order_params)
 
     if params[:order][:select_address] == "0"
@@ -42,8 +54,12 @@ class OrdersController < ApplicationController
 
  private
 
-  def order_params
-    params.require(:order).permit(:payment_method, :postcode, :address, :name)
+ def order_params
+    params.require(:order).permit(:payment_method, :postcode, :address, :full_name)
+  end
+
+ def confirm_params
+    params.permit(:customer_id, :postcode, :address, :full_name, :postage, :total_payment, :payment_method, :order_status)
   end
 
 end
