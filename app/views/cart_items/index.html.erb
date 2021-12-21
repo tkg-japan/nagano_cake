@@ -5,7 +5,7 @@
     </div>
     <div class="col-md-2 my-5">
       <div class="text-right">
-        <%= link_to "カートを空にする", destroy_all_path, method: :delete, class:"btn btn-danger" %>
+        <%= link_to "カートを空にする", destroy_all_cart_items_path, method: :delete, class:"btn btn-danger" %>
       </div>
     </div>
   </div>
@@ -20,8 +20,8 @@
           <th style="width: 15%"></th>
         </thead>
         <tbody>
+          <% @cart_items.each do |cart_item| %>
           <tr>
-            <% @cart_items.each do |cart_item| %>
         　   <td>
               <%= attachment_image_tag cart_item.item, :image, format: '.jpeg', size: "60x40" %>
               <%= cart_item.item.name %>
@@ -29,18 +29,20 @@
             <!--delimited：数値を３桁で区切る-->
             <td><%= cart_item.item.add_tax_price.to_s(:delimited) %></td>
             <td>
-              <%= f.select :amount, *[1..30] %>
-              <%= f.submit '変更' %>
+              <%= form_with model:cart_item, local: true do |f| %>
+                <%= f.select :amount, *[1..30] %>
+                <%= f.submit '変更' %>
+              <% end %>
             </td>
             <!--数値を３桁で区切る-->
             <td><%= cart_item.subtotal.to_s(:delimited) %></td>
             <!--@totalに各商品ごとの小計が加算されていくことを定義-->
             <% @total +=  cart_item.subtotal %>
             <td>
-              <%= link_to "削除する", customers_cart_item_path(cart_item), method: :delete,class: "btn btn-danger" %>
+              <%= link_to "削除する", cart_item_path(cart_item), method: :delete,class: "btn btn-danger" %>
             </td>
-            <% end %>
           </tr>
+          <% end %>
         </tbody>
       </table>
     </div>
