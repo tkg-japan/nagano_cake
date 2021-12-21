@@ -4,7 +4,8 @@
   </div>
   <%= form_with model: @customer, url: customer_update_path, local:true do |f| %>
     <div class="col">
-      <p>(エラーメッセージの部分テンプレート表示)</p>
+      <%= render "layouts/error_message", model: f.object %>
+      <p>（バリデーション未完成）</p>
     </div>
     <div class="form-group row">
       <%= f.label :"氏名", class: "col-md-3" %>
@@ -35,7 +36,6 @@
     <div class="form-group row d-flex">
       <%= f.submit "編集内容を保存", class: "btn btn-success col-md-2 offset-3" %>
     </div>
-      <!--く%= link_to "退会する", unsubscribe_customers_path, class: "btn btn-danger col-md-1 offset-1" %>-->
-    <%= link_to "退会する", unsubscribe_path(@customer), class: "btn btn-danger" %>
+      <%= link_to "退会する", unsubscribe_path(@customer), class: "btn btn-danger" %>
 <% end %>
 </div>
