@@ -4,7 +4,7 @@
       <%= render 'items/genre', genres: @genres %>
       <div class="mt-5 d-flex">
         <div class="image-box mr-4">
-          <%= attachment_image_tag @item, :image, :fill, 80, 80, format: "no-image-icon.jpg" %>
+          <%= attachment_image_tag @item, :image, :fill, 200, 200, format: "no-image-icon.jpg" %>
         </div>
         <div class="explanation-box">
           <h4><%= @item.name %></h4>
