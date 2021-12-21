@@ -4,8 +4,7 @@
   </div>
   <%= form_with model:@address,url:"/addresses/#{@address.id}", local:true do |f| %>
     <div class="col">
-      <p>(エラーメッセージの部分テンプレート表示)</p>
-      <!--く%= render "**/error_messages", resource: @address %>-->
+      <%= render "layouts/error_message", model: f.object %>
     </div>
     <div class="form-group row">
       <label for="" class="col-md-4 col-form-label">郵便番号（ハイフンなし）</label>
