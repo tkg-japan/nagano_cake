@@ -11,7 +11,7 @@ class Admin::ItemsController < ApplicationController
     if @item.save
       redirect_to admin_item_path(@item.id), notice: "いいーね!!"
     else
-      frash.now[:alert] = "もう一度入力し直してください。"
+      # frash.now[:alert] = "もう一度入力し直してください。"
       render "index"
     end
 
