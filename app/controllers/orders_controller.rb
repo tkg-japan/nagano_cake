@@ -13,6 +13,8 @@ class OrdersController < ApplicationController
   end
 
   def create
+    @orders = Order.new(confirm_params)
+    @orders.save
   end
 
   def confilm
