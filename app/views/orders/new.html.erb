@@ -10,7 +10,7 @@
         <br>
         <%#= f.radio_button :payment_method, Order.payment_methods.key(1) %>
         <%= f.label :payment_method, Order.payment_methods_i18n[:transfer] %>
-
+         <%# この辺はenumを使った記述だよ！ models/order.rbも関係してくる %>
 
       <h5>お届け先</h5>
         <div>

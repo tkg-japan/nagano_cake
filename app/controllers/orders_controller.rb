@@ -24,11 +24,6 @@ class OrdersController < ApplicationController
     params.require(:order).permit(:payment_method, :postcode, :address, :name)
   end
 
-  # def products_exists?
-  #   if current_customer.cart_products.blank?
-  #     redirect_to products_path
-  #     flash[:alert] = "カートに商品を入れてね"
-  #   end
-  # end
+  
 
 end
