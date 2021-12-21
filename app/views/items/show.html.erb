@@ -9,7 +9,7 @@
         <div class="explanation-box">
           <h4><%= @item.name %></h4>
           <div class="w-auto h-50"><%= @item.explanation %></div>
-          <strong>¥<%= @item.price.to_s(:delimited) %></strong>(税込)
+          <strong>¥<%= @item.add_tax_price.to_s(:delimited) %></strong>(税込)
           <%= form_with(model:@cart_item, url:cart_items_path, local: true, method: :post, class:"form-inline mt-2") do |f| %>
             <%= f.hidden_field :item_id, value: @item.id %>
             <%= f.select :amount, *[1..10] %>
