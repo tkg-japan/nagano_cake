@@ -6,6 +6,11 @@ class Admin::OrdersController < ApplicationController
     @orders = Order.all
   end
   
+  def show
+    @order = Order.find_by(params[:id])
+    @order_details = @order.order_details
+  end
+  
   def update
     @order = Order.find(params[:id])
     # p order_params[:order_status]　←？
