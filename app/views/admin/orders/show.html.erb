@@ -28,6 +28,7 @@
         <%= form_with(model: @order, url: admin_order_path, local: true) do |f| %>
         <th>注文ステータス</th>
         <td>
+          <!--enum-->
           <%= f.select :status, ['入金待ち','入金確認','製作中','発送準備中','発送済み'], :selected => @order.status %>
           <%= f.submit "更新", class:"btn btn-success" %>
         </td>
@@ -49,20 +50,19 @@
         <tbody>
           <% @order_details.each do |order_detail| %>
           <td><%= order_detail.item.name %></td>
-          <td><%= order_detail.price %></td>
-          <td><%= order_detail.amount %></td>
-          <td><%= order_detail.price * order_detail.amount %></td>
+          <td><%= (order_detail.price).to_s(:delimited) %></td>
+          <td><%= (order_detail.amount).to_s(:delimited) %></td>
+          <td><%= (order_detail.price * order_detail.amount).to_s(:delimited) %></td>
+          <% @total +=  order_detail.price * order_detail.amount %>
           <td>
             <div>
-              <%#= form_with model: [:admin, order_detail], local:true do |f| %>
               <%= form_with(model:[@order, order_detail], url: admin_order_order_detail_path(order_detail), local: true) do |f| %>
                 <!--enum必要-->
-                <%= f.select :making_status, [['着手不可','0'],['製作待ち','1'],['製作中','2'],['製作完了','3']] %>
+                <%#= f.select :making_status, [['着手不可','0'],['製作待ち','1'],['製作中','2'],['製作完了','3']] %>
+                <%= f.select :making_status, ['着手不可','製作待ち','製作中','製作完了'], :selected => order_detail.making_status %>
                 <%= f.submit "更新", class:"btn btn-success" %>
               <% end %>
             </div>
-            <!--必要？-->
-            <%#= order_detail.making_status %>
           </td>
           <td></td>
           <% end %>
@@ -73,8 +73,7 @@
        <table>
         <tr>
           <th>商品合計</th>
-          <!--要件定義書より送料は1配送につき全国一律800円-->
-          <td><%= @order.total_payment-800 %>円</td>
+          <td><%= (@total).to_s(:delimited) %>円</td>
         </tr>
         <tr>
           <th>送料</th>
@@ -82,7 +81,7 @@
         </tr>
         <tr>
           <th>請求金額合計</th>
-          <td><%= @order.total_payment %>円</td>
+          <td><%= (@total + 800).to_s(:delimited) %>円</td>
         </tr>
       </table>
     </div>
