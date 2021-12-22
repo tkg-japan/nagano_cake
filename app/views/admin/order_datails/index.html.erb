@@ -58,7 +58,7 @@
               <!--form_with で製作ステータスの更新させる-->
               <%#= form_with model: [:admin, order_detail], local:true do |f| %>
               <%= form_with model: order_detail, local:true do |f| %>
-                <!--enum必要-->
+                <!--enum必要？-->
                 <%= f.select :making_status, [['着手不可','0'],['製作待ち','1'],['製作中','2'],['製作完了','3']] %>
                 <%= f.submit "更新", class:"btn btn-success" %>
               <% end %>
