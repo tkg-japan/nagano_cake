@@ -1,21 +1,22 @@
-<div class="side bar">
-  <!--サイドバーの部分テンプレートく%= render~ %>-->
-</div>
-<div class="main">
-  <div>
-    <div class="top_text">
-      <p>ようこそ、ながのCAKEへ！</p>
-      <p>このサイトは、ケーキ販売のECサイトになります。</p>
-      <p>会員でない方も商品の閲覧はできますが、</p>
-      <p>購入には会員登録が必要になります。</p>
-      <div class="background_image"><!--画像--></div>
+<div class="container">
+  <div class="row">
+    <%= render 'items/genre', genres: @genres %>
+    <div class="col-md-9 offset-md-1 my-5">
+      <div class="mv-top mb-5">
+        <div class="text-red font-weight-bold py-5 px-5">
+          <div class="col-6 mx-auto message">
+            ようこそ、ながのCAKEへ！<br>
+            このサイトは、ケーキ販売のECサイトになります。<br>
+            会員でない方も商品の閲覧はできますが、<br>
+            購入には会員登録が必要になります。
+          </div>
+          <h2>新着情報</h2>
+          <div class="d-flex flex-row mt-2"></div>
+          <%# @item.each do |item| %>
+      <!--く%= link_to "すべての商品を見る>", items_index_path, %>-->
+          <%# end %>
+          </div>
+      </div>
     </div>
   </div>
-  <table>
-    <h2>新着情報</h2>
-    <tr>
-      <!--ここに商品が来る(く%= render 'items/index', ****: @**** %>になる？)-->
-      <!--く%= link_to "すべての商品を見る>", items_index_path, %>-->
-    </tr>
-  </table>
 </div>
