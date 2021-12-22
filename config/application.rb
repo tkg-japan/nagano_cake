@@ -19,5 +19,8 @@ module NaganoCake
     config.i18n.default_locale = :ja
     config.i18n.load_path += Dir[Rails.root.join('config/locales/*.yml').to_s]
     # Railsアプリケーションを日本語対応させる,国際化(i18n)という仕組み
+    
+    # 日本時間
+    config.time_zone = 'Tokyo'
   end
 end
