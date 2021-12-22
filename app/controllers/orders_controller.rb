@@ -14,20 +14,22 @@ class OrdersController < ApplicationController
 
 
   def create
-    @orders = Order.new(confirm_params)
+    @orders = Order.new(order_params)
+    @orders.customer_id = current_customer.id
     @orders.save
 
     current_customer.cart_items.each do |item|
       @item = OrderDetail.new
       @item.item_id = item.item_id
-      @item.quantity = item.quantity
-      @item.price = item.item.price_without_tax
+      @item.amount = item.amount
+      @item.price = item.item.add_tax_price
       @item.order_id = @orders.id
-      @item.production_status = '着手不可'
+      @item.making_status = '着手不可'
       @item.save
-    end
+   end
 
     current_customer.cart_items.destroy_all
+    redirect_to complete_orders_path
   end
 
   def confirm
@@ -42,7 +44,7 @@ class OrdersController < ApplicationController
       @addresses = Address.find(params[:order][:address_id])
       @order.postcode = @addresses.postcode
       @order.address = @addresses.address
-      @order.full_name = @addresses.full_name
+      @order.name = @addresses.name
 
     else params[:order][:address_number] == '2'
     end
@@ -55,7 +57,7 @@ class OrdersController < ApplicationController
  private
 
   def order_params
-    params.require(:order).permit(:payment_method, :postcode, :full_name, :name, :address)
+    params.require(:order).permit(:payment_method, :postcode, :name, :address, :shipping_cost, :status, :customer_id, :total_payment )
   end
 
 end
