@@ -1,16 +1,10 @@
-<div class="container px-5 px-sm-0">
-  <div class="row">
-    <div class="col-md-4">
-      <table class="table table-bordered">
-        <tr>
-          <th><div class="text-center">ジャンル検索</div></th>
-        </tr>
-        <% genres.each do |genre| %>
-        <tr>
-          <td><div class="text-center"><%= genre.name %></div></td>
-        </tr>
-        <% end %>
-      </table>
-    </div>
-  </div>
+<div class="col-md-2 my-5">
+  <ul class="list-box "></ul>
+    <li class="list-box-genre text-center">ジャンル検索</li>
+      <% genres.each do |genre| %>
+        <li>
+          <%= genre.name %></div></td>
+        </li>
+      <% end %>
+  </ul>
 </div>
