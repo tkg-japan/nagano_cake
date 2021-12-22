@@ -20,8 +20,11 @@
       </td>
       <td><%= ordes.last_name %><%= order.first_name %></td>
       <td><%= order.order_details.sum(:quantity) %></td>
-      <td><%#= order.status_i18n %></td>
-      　　<!--Gem必要-->
+      <td>
+        <%= Order.order_statuses_i18n[order.order.order_status] %>
+        <%#= order.status_i18n %>
+        <!--Gem必要？-->
+      </td>
     </tbody>
     <% end %>
   </table>
