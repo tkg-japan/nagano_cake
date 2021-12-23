@@ -23,7 +23,7 @@
           </div>
           <div class="col-md-2 align-self-center">
             <% if customer_signed_in? %>
-              <p>ようこそ<%= current_customer.last_name %>さん！</p>
+              <p>ようこそ <%= current_customer.last_name %> さん！</p>
             <% end %>
           </div>
           <div class="col-md-7">
@@ -59,13 +59,12 @@
     </header>
 
     <main>
-
-
+      <p id="notice"><%= notice %></p>
 
       <%= yield %>
     </main>
 
-    <footer>©S️</footer>
+    <footer>©　長野のケーキ屋さん　</footer>
 </div>
   </body>
 </html>
