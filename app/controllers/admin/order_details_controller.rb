@@ -22,10 +22,15 @@ class Admin::OrderDetailsController < ApplicationController
     elsif @order_detail.making_status == "製作完了"
     # elsif @order.order_details.count == @order.order_details.where(making_status: 3).count
       # 注文ステータスを"発送準備中"に更新
+      @order_details = @order.order_details
+      making_status_complete = @order_details.where(making_status: "製作完了")
+
+      if making_status_complete.count == @order_details.count
       @order.update(status: 3)
-    end
+      end
     # 遷移元のURLを取得
     redirect_to request.referer
+    end
   end
 
   private

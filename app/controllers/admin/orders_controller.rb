@@ -7,7 +7,7 @@ class Admin::OrdersController < ApplicationController
   end
 
   def show
-    @order = Order.find_by(params[:id])
+    @order = Order.find(params[:id])
     @order_details = @order.order_details
     @total = 0
   end
@@ -17,7 +17,7 @@ class Admin::OrdersController < ApplicationController
     # @order.update(order_params)
     @order.update(order_params)
 
-    if @order.status == "入金確認"
+    if params[:order][:status] == "入金確認"
       # flash[:notice] = "作り始めよう！"
       @order.order_details.update(making_status: 1)
 
