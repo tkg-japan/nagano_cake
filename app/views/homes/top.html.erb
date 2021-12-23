@@ -12,9 +12,15 @@
           </div>
           <h2>新着情報</h2>
           <div class="d-flex flex-row mt-2"></div>
-          <%# @item.each do |item| %>
-      <!--く%= link_to "すべての商品を見る>", items_index_path, %>-->
-          <%# end %>
+            <% @item.each do |item| %>
+              <div>
+              <%= link_to product_path(product) do %>
+                <%= attachment_image_tag product, :image, :fill, 200, 200, fallback: "no_image.jpg" %>
+              <% end %>
+              </div>
+              <div><%= item.name %></div>
+              <div>¥ <%= item.price.to_s(:delimited) %></div>
+            <% end %>
           </div>
       </div>
     </div>
