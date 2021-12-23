@@ -57,7 +57,7 @@
         <%= f.hidden_field :name, value: @order.name %>
         <%= f.hidden_field :payment_method, value: @order.payment_method %>
         <%= f.hidden_field :shipping_cost, value:'800' %>
-        <%= f.hidden_field :status, value: 'wait' %>
+        <%= f.hidden_field :status, value: '入金待ち' %>
         <%= f.hidden_field :customer_id, value: current_customer.id %>
         <%= f.hidden_field :total_payment, value: @total %>
         <%= f.submit "注文を確定する", class:"mt-2 btn-success mb-5" %>

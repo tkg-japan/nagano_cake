@@ -61,7 +61,7 @@ class Customer::RegistrationsController < Devise::RegistrationsController
   # end
   def after_sign_up_path_for(resource)
     flash[:notice] = "会員登録できました。"
-    items_path
+    customers_path
   end
 
 end
