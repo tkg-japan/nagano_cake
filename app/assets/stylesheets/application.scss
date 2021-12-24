@@ -47,7 +47,7 @@ footer{
   text-align:center;
   background-color:#CDBBEC;
   height:100px;
-  position:absolute;
+  position: fixed;
   width:100%;
   bottom: 0;
 }
@@ -69,12 +69,13 @@ main {
 .genres th{
 
   padding:10px;
-  background-color:#eee;
 }
 
 .genres td{
   padding:10px;
 }
 
-  
+.genres tr{
+  border-bottom:1px solid #e0e0e0;
+}
 
