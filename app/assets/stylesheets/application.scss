@@ -31,9 +31,9 @@
   box-sizing: border-box;
  }
 
- header {
+.shadow-sm {
   border-bottom: 1px solid #a9a9a9;
-  background-color:#CDBBEC;
+  background-image: url("<%= image_tag('header_footer.png') %>");
   margin-top: 0;
 
  }
