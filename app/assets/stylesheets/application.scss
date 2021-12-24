@@ -51,7 +51,6 @@ footer{
   height:100px;
   width:100%;
   bottom: 0;
-  position: fixed;
 }
 
 
@@ -108,4 +107,9 @@ main {
 }
 
 .new-item-text {
+}
+
+.shopping_cart {
+  display: inline-block;
+  border-bottom: solid 2px #ffedab;
 }
