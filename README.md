@@ -1,5 +1,5 @@
 <h1>ながの CAKE</h1>
-[README.md](https://github.com/tkg-japan/nagano_cake/files/7772545/README.md)
+![ロゴ](https://user-images.githubusercontent.com/91769651/147316156-f552f27d-6138-48a4-8724-b2dd92714e8a.png)
 <h2>サイト概要</h2>
 長野県にある小さな洋菓子店「ながの CAKE」の商品を通販するための EC サイト開発。
 
