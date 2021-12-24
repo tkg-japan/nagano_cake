@@ -34,6 +34,8 @@
  header {
   border-bottom: 1px solid #a9a9a9;
   background-color:#CDBBEC;
+  margin-top: 0;
+
  }
 
 .navbar-link {
@@ -47,15 +49,16 @@ footer{
   text-align:center;
   background-color:#CDBBEC;
   height:100px;
-  position: fixed;
   width:100%;
   bottom: 0;
+  position: fixed;
 }
 
 
 main {
  padding-top: 20px;
  padding-bottom: 20px;
+
  // background-color:#eee;
 }
 
@@ -63,19 +66,36 @@ main {
 
 
 .genres {
-  border-bottom:1px solid #000;
+  border-bottom: 1px solid #000;
 }
 
 .genres th{
-
-  padding:10px;
+  padding: 10px;
 }
 
 .genres td{
-  padding:10px;
+  padding: 10px;
+}
+
+.list-box {
+  border: 2px solid #ff0000;
+}
+
+.card {
+  flex-direction: row;
+}
+
+.new-item {
+  margin-right: 10px;
+}
+
+.navbar-light .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(0, 0, 0, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M6 6L 24 24M24 6L6 24'/%3E%3C/svg%3E");
 }
 
 .genres tr{
   border-bottom:1px solid #e0e0e0;
 }
 
+.new-item-text {
+}
