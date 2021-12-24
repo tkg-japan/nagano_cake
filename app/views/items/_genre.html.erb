@@ -1,10 +1,14 @@
-<div class="col-md-2 my-5">
-  <ul class="list-box "></ul>
-    <li class="list-box-genre text-center">ジャンル検索</li>
+<div class="col-md-3 my-5">
+  <table class="list-box table-bordered"></table>
+    <thead>
+      <th class="list-box-genre text-center">ジャンル検索</th>
+    </thead>
+    <tbody>
       <% genres.each do |genre| %>
-        <li>
-          <%= genre.name %></div></td>
-        </li>
+        <tb>
+          <%= genre.name %>
+        </tb>
       <% end %>
-  </ul>
+    </tbody>
+  </table>
 </div>
