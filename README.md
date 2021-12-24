@@ -1,5 +1,5 @@
 <h1>ながの CAKE</h1>
-![ロゴ](https://user-images.githubusercontent.com/91769651/147314505-9af7e4eb-0d8e-46b9-bd23-c67f75f88119.png)
+
 <h2>サイト概要</h2>
 長野県にある小さな洋菓子店「ながの CAKE」の商品を通販するための EC サイト開発。
 
