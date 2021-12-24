@@ -5,7 +5,7 @@
     </div>
   </div>
   <div class="col-6">
-    <table class="table table-bordered">
+    <table class="order.customer">
       <tr>
         <th>購入者</th>
         <td><%= @order.name %></td>
@@ -37,7 +37,7 @@
     </table>
   </div>
   <div class="row">
-    <div class="col-6">
+    <div class="col-7">
       <table class="table table-bordered">
         <thead>
           <th>商品名</th>
@@ -45,33 +45,29 @@
           <th>数量</th>
           <th>小計</th>
           <th>製作ステータス</th>
-          <th></th>
         </thead>
         <tbody>
           <% @order_details.each do |order_detail| %>
           <tr>
-          <td><%= order_detail.item.name %></td>
-          <td><%= (order_detail.price).to_s(:delimited) %></td>
-          <td><%= (order_detail.amount).to_s(:delimited) %></td>
-          <td><%= (order_detail.price * order_detail.amount).to_s(:delimited) %></td>
-          <% @total +=  order_detail.price * order_detail.amount %>
-          <td>
-            <div>
-              <%= form_with(model:[@order, order_detail], url: admin_order_order_detail_path(@order,order_detail), local: true) do |f| %>
-                <!--enum必要-->
-                <%#= f.select :making_status, [['着手不可','0'],['製作待ち','1'],['製作中','2'],['製作完了','3']] %>
-                <%= f.select :making_status, options_for_select([['着手不可'],['製作待ち'],['製作中'],['製作完了']], {:selected => order_detail.making_status}) %>
-                <%= f.submit "更新", class:"btn btn-success" %>
-              <% end %>
-            </div>
-          </td>
-          <td></td>
-          </tr>
-          <% end %>
+            <td><%= order_detail.item.name %></td>
+            <td><%= (order_detail.price).to_s(:delimited) %>  円</td>
+            <td><%= (order_detail.amount).to_s(:delimited)%>  個</td>
+            <td><%= (order_detail.price * order_detail.amount).to_s(:delimited) %>  円</td>
+            <% @total +=  order_detail.price * order_detail.amount %>
+            <td>
+              <div>
+                <%= form_with(model:[@order, order_detail], url: admin_order_order_detail_path(@order,order_detail), local: true) do |f| %>
+                  <%= f.select :making_status, options_for_select([['着手不可'],['製作待ち'],['製作中'],['製作完了']], {:selected => order_detail.making_status}) %>
+                  <%= f.submit "更新", class:"btn btn-success" %>
+                <% end %>
+              </div>
+           </td>
+         </tr>
+         <% end %>
         </tbody>
       </table>
     </div>
-    <div class="col-2">
+    <div class="col-4">
        <table>
         <tr>
           <th>商品合計</th>
