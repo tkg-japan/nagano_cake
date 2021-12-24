@@ -14,7 +14,7 @@ Instagram の DM やメールで通販の注文を受けていたが、情報管
 
 ・[ER図](https://github.com/tkg-japan/nagano_cake/files/7772678/ER.pdf)<br>
 ・[テーブル提議書](https://github.com/tkg-japan/nagano_cake/files/7772706/default.pdf)<br>
-・アプリケーション詳細設計書<br>
+・[アプリケーション詳細設計](https://github.com/tkg-japan/nagano_cake/files/7772735/default.pdf)<br>
 
 <h2>開発環境</h2>
 ・Ruby 　 2.6.3<br>
