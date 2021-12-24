@@ -1,5 +1,5 @@
 <h1>ながの CAKE</h1>
-![ロゴ](https://user-images.githubusercontent.com/91769651/147316156-f552f27d-6138-48a4-8724-b2dd92714e8a.png)
+
 <h2>サイト概要</h2>
 長野県にある小さな洋菓子店「ながの CAKE」の商品を通販するための EC サイト開発。
 
@@ -10,10 +10,10 @@ Instagram の DM やメールで通販の注文を受けていたが、情報管
 理機能を含んだ通販サイトを開設しようと思い至った。
 
 <h2>設計書</h2>
-[ER図.pdf](https://github.com/tkg-japan/nagano_cake/files/7772546/ER.pdf)
-ER 図
-テーブル定義書
-アプリケーション詳細設計書
+
+・ER 図
+・テーブル定義書
+・アプリケーション詳細設計書
 
 <h2>開発環境</h2>
 ・Ruby 　 2.6.3
