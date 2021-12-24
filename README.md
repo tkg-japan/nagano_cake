@@ -13,7 +13,7 @@ Instagram の DM やメールで通販の注文を受けていたが、情報管
 <h2>設計書</h2>
 
 ・[ER図](https://github.com/tkg-japan/nagano_cake/files/7772678/ER.pdf)<br>
-・テーブル定義書<br>
+・[テーブル提議書](https://github.com/tkg-japan/nagano_cake/files/7772706/default.pdf)<br>
 ・アプリケーション詳細設計書<br>
 
 <h2>開発環境</h2>
