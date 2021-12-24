@@ -1,3 +1,4 @@
+
 <h1>ながの CAKE</h1>
 
 ![ロゴ](https://user-images.githubusercontent.com/91769651/147318353-0fdb98dc-7a8f-489e-a652-efee85e3646d.png)
@@ -27,4 +28,3 @@ Instagram の DM やメールで通販の注文を受けていたが、情報管
 ・けんぼー<br>
 ・めら<br>
 ・奥さん<br>
-・ミーナ
