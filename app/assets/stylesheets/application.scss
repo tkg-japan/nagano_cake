@@ -68,17 +68,27 @@ main {
 }
 
 .genres {
-  border-bottom:1px solid #000;
+  border-bottom: 1px solid #000;
 }
 
 .genres th{
-
-  padding:10px;
-  background-color:#eee;
+  padding: 10px;
 }
 
 .genres td{
-  padding:10px;
+  padding: 10px;
+}
+
+.list-box {
+  border: 2px solid #ff0000;
+}
+
+.card {
+  flex-direction: row;
+}
+
+.new-item {
+  margin-right: 10px;
 }
 
 
@@ -86,6 +96,9 @@ main {
   padding:15px;
 }
 
+.genres tr{
+  border-bottom:1px solid #e0e0e0;
+}
 
 .col-4 th {
   padding-bottom: 5px;
@@ -93,4 +106,7 @@ main {
 
 .col-4 td {
   padding-left: 20px;
+
+.new-item-text {
+
 }
