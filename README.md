@@ -1,24 +1,29 @@
-# README
+<h1>ながの CAKE</h1>
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+<h2>サイト概要</h2>
+長野県にある小さな洋菓子店「ながの CAKE」の商品を通販するための EC サイト開発。
 
-Things you may want to cover:
+<h2>背景</h2>
+元々近隣住民が顧客だったが、昨年始めた Instagram から人気となり、全国から注文が来るよう
+になった。<br>
+Instagram の DM やメールで通販の注文を受けていたが、情報管理が煩雑になってきたため、管
+理機能を含んだ通販サイトを開設しようと思い至った。
 
-* Ruby version
+<h2>設計書</h2>
 
-* System dependencies
+・ER 図<br>
+・テーブル定義書<br>
+・アプリケーション詳細設計書<br>
 
-* Configuration
+<h2>開発環境</h2>
+・Ruby 　 2.6.3<br>
+・Rails 　 5.2.6<br>
 
-* Database creation
+<h2>チーム名</h2>
+・TKG-japan
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+<h2>メンバー</h2>
+・けんぼー<br>
+・めら<br>
+・奥さん<br>
+・ミーナ

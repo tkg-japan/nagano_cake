@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="row">
+    <%= render 'items/genre', genres: @genres %>
+      <div class="mt-5 d-flex">
+        <div class="image-box mr-4">
+          <%= attachment_image_tag @item, :image, :fill, 200, 200, format: "no-image-icon.jpg" %>
+        </div>
+        <div class="explanation-box">
+          <h4><%= @item.name %></h4>
+          <div class="w-auto h-50"><%= @item.explanation %></div>
+          <strong>¥<%= @item.add_tax_price.to_s(:delimited) %></strong>(税込)
+          <%= form_with(model:@cart_item, url:cart_items_path, local: true, method: :post, class:"form-inline mt-2") do |f| %>
+            <%= f.hidden_field :item_id, value: @item.id %>
+            <%= f.select :amount, *[1..10] %>
+            <%= f.submit "カートに入れる", class:"btn btn-primary btn-sm ml-4" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
