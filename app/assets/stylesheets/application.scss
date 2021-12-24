@@ -29,14 +29,13 @@
   position:relative;
   padding-bottom: 100px;
   box-sizing: border-box;
- }
+}
 
- header {
+.shadow-sm {
   border-bottom: 1px solid #a9a9a9;
-  background-color:#CDBBEC;
-  margin-top: 0;
-
- }
+  background-image: image-url('mizutama.jpeg');
+  margin: 0;
+}
 
 .navbar-link {
  margin-left: 30px;
@@ -44,16 +43,16 @@
 
 footer{
   border-top: 1px solid #a9a9a9;
-  padding-top:15px;
-  padding-bottom:15px;
+  width: 100%;
   text-align:center;
-  background-color:#CDBBEC;
   height:100px;
-  width:100%;
   bottom: 0;
-  
+  background-image: image-url('mizutama.jpeg');
 }
 
+.body{
+  margin: 0;
+}
 
 main {
  padding-top: 20px;
@@ -80,7 +79,10 @@ main {
 }
 
 .list-box {
-  border: 2px solid #ff0000;
+}
+
+.list-box-item {
+  flex-direction: column;
 }
 
 .card {
@@ -116,5 +118,9 @@ main {
 }
 
 .new-item-text {
+}
 
+.shopping_cart {
+  display: inline-block;
+  border-bottom: solid 2px #ffedab;
 }
