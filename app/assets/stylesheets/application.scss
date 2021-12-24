@@ -48,10 +48,8 @@ footer{
   padding-bottom:15px;
   text-align:center;
   background-color:#CDBBEC;
-  height:100px;
+  height:190px;
   width:100%;
-  bottom: 0;
-  position: fixed;
 }
 
 
@@ -80,7 +78,10 @@ main {
 }
 
 .list-box {
-  border: 2px solid #ff0000;
+}
+
+.list-box-item {
+  flex-direction: column;
 }
 
 .card {
@@ -110,3 +111,4 @@ main {
 .new-item-text {
 
 }
+
