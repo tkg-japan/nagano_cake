@@ -47,7 +47,6 @@ footer{
   height: 120px;
   text-align:center;
   background-image: image-url('mizutama.jpeg');
-　height: 100px;
 }
 
 .body{
@@ -79,7 +78,10 @@ main {
 }
 
 .list-box {
-  border: 2px solid #ff0000;
+}
+
+.list-box-item {
+  flex-direction: column;
 }
 
 .card {
@@ -109,3 +111,4 @@ main {
 .new-item-text {
 
 }
+
