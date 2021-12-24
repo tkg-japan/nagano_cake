@@ -2,13 +2,12 @@
   <h3>商品新規登録</h3>
   <div class="row">
 
-    <!--colのサイズ設定   ここのurlってなんだっけ？-->
+    <%# colのサイズ設定 %>
     <%= form_with model: @item, url: admin_items_path,local: true do |f| %>
     <div class="col">
-      <%#= render "public/shared/error_messages", resource: @item %>
-      <%# 上のいらないかも？ ピリリのコピー%>
+
     </div>
-      <table class="cart_items">
+      <table class="admin_items">
         <tr>
           <th>商品画像</th>
           <td><%= f.attachment_field :image %></td>
@@ -31,7 +30,7 @@
         </tr>
         <tr>
           <th>販売ステータス</th>
-          <td>
+          <td class="col-md-3">
             <%= f.radio_button :is_active, :true %>
             <%= f.label :is_active, "販売中" %>
             <%= f.radio_button :is_active, :false %>
