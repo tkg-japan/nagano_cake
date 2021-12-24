@@ -51,7 +51,7 @@ footer{
   height:100px;
   width:100%;
   bottom: 0;
-  position: fixed;
+  
 }
 
 
@@ -97,6 +97,14 @@ main {
 
 .genres tr{
   border-bottom:1px solid #e0e0e0;
+}
+
+.order-customer th {
+  padding: 5px;
+}
+
+.col-6 {
+  padding-bottom: 20px;
 }
 
 .col-4 th {
