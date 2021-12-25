@@ -14,35 +14,17 @@ class Admin::OrdersController < ApplicationController
 
   def update
     @order = Order.find(params[:id])
-    # @order.update(order_params)
     @order.update(order_params)
 
+    # [:order][:status]→orderの中のstatus
     if params[:order][:status] == "入金確認"
-      # flash[:notice] = "作り始めよう！"
+      # making_statusを製作待ちに更新
       @order.order_details.update(making_status: 1)
-
-    # elsif @order.status == "発送済み"
-      # flash[:notice] = "頑張ったね！"
     end
 
     redirect_to request.referer
 
   end
-
-  # def update
-  #   @order = Order.find(params[:id])
-  #   # p order_params[:order_status]　←？
-  #   @order.update(status: params[:status].to_i)
-  #   # p @order.order_status　←？
-  #   if @order.status == "入金確認"
-  #     @order.order_details.each do |order_detail|
-  #       # 製作ステータスを"製作待ち"に更新
-  #       order_detail.update(making_status: 1)
-  #     end
-  #   end
-  #   # 遷移元のURLを取得
-  #   redirect_to request.referer
-  # end
 
   private
 

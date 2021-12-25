@@ -8,11 +8,8 @@ class Admin::OrderDetailsController < ApplicationController
   end
 
   def update
-    # making_statusでどのボタンが押されたかを特定する
     @order_detail = OrderDetail.find(params[:id])
-    # 注文商品から注文テーブルの呼び出し
     @order = @order_detail.order
-    # 製作ステータスの更新はmaking_statusだけのデータ取得が必要。to_iではいってくるデータをintegerにする
     @order_detail.update(order_detail_params)
 
     if @order_detail.making_status == "製作中"
@@ -20,12 +17,12 @@ class Admin::OrderDetailsController < ApplicationController
       @order.update(status: 2)
 
     elsif @order_detail.making_status == "製作完了"
-    # elsif @order.order_details.count == @order.order_details.where(making_status: 3).count
-      # 注文ステータスを"発送準備中"に更新
+      
       @order_details = @order.order_details
       making_status_complete = @order_details.where(making_status: "製作完了")
-
+      # .count→～の数
       if making_status_complete.count == @order_details.count
+      # 注文ステータスを"発送準備中"に更新
       @order.update(status: 3)
       end
     # 遷移元のURLを取得
