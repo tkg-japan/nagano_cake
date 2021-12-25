@@ -10,7 +10,6 @@ class CartItemsController < ApplicationController
   end
 
   def index
-    # ログインしている会員の全てのカート内商品
     @cart_items = current_customer.cart_items.all
     @total = 0
   end
