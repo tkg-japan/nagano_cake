@@ -23,8 +23,6 @@
         <td><%= Order.payment_methods_i18n[@order.payment_method] %></td>
       </tr>
       <tr>
-        <!--model: [:admin, @order]←名前空間が異なるコントローラを指定する-->
-        <%#= form_with model: [:admin, @order], local:true do |f| %>
         <%= form_with(model: @order, url: admin_order_path, local: true) do |f| %>
         <th>注文ステータス</th>
         <td>
