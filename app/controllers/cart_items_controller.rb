@@ -10,10 +10,6 @@ class CartItemsController < ApplicationController
   end
 
   def index
-<<<<<<< HEAD
-    # ログインしている会員の全てのカート内商品
-=======
->>>>>>> 94268786af130c620b57ff9c38fba4b05f010634
     @cart_items = current_customer.cart_items.all
     @total = 0
   end
