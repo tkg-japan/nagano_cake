@@ -5,8 +5,8 @@
 
   <%= form_with model:@customer, url: admin_customer_path, method: :PATCH, local:true do |f| %>
   <div class="col">
-    <%#= render "customer/shared/error_messages", resource: @customer %>
-    <!--エラーメッセージのテンプレ作る？-->
+    <%= render "layouts/error_message", model: f.object %>
+    <!--エラーメッセージのテンプレ作った-->
   </div>
   <div class="form-group row">
     <div class="col-md-3">会員ID</div>
