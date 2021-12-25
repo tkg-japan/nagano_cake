@@ -5,7 +5,6 @@
   <%= form_with model: @customer, url: customer_update_path, local:true do |f| %>
     <div class="col">
       <%= render "layouts/error_message", model: f.object %>
-      <p>（バリデーション未完成）</p>
     </div>
     <div class="form-group row">
       <%= f.label :"氏名", class: "col-md-3" %>
