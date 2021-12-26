@@ -1,0 +1,32 @@
+  ja:
+    enums:
+      order:
+        payment_method:
+          credit_card: "クレジットカード"
+          transfer: "銀行振込"
+
+
+    devise:
+      confirmations:
+        confirmed: 'アカウントを登録しました。'
+
+      registrations:
+        destroyed: 'アカウントを削除しました。またのご利用をお待ちしております。'
+        signed_up: 'アカウント登録が完了しました。'
+        updated: 'アカウント情報を変更しました。'
+      sessions:
+        signed_in: 'ログインしました。'
+        signed_out: 'ログアウトしました。'
+        already_signed_out: '既にログアウト済みです。'
+
+    errors:
+      messages:
+        already_confirmed: 'は既に登録済みです。ログインしてください。'
+        not_saved:
+          one: "エラーが発生したため %{resource} は保存されませんでした:"
+          other: "%{count} 件のエラーが発生したため %{resource} は保存されませんでした:"
+        taken: "は既に使用されています。"
+        blank: "が入力されていません。"
+
+        invalid: "は有効でありません。"
+        confirmation: "が内容とあっていません。"
